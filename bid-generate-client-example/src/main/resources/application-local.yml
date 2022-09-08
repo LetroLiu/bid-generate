@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    druid:
+      stat-view-servlet:
+        enabled: true
+        loginUsername: admin
+        loginPassword: 123456
+        allow:
+      web-stat-filter:
+        enabled: true
+
+  #钉钉日志报警
+  dinger:
+    project-id: ${spring.application.name}
+    enabled: false
+    dingers:
+      dingtalk:
+        async: true
+        tokenId: d67d98106a6473bac7ff18558257f441a23aaebd72363eb8c31cd2f7fa38064f
+
+#日志配置
+logging:
+  file:
+    path: ${user.home}/logs/${spring.application.name}
+  level:
+    root: info
+    cn.letro: debug
+    com.baomidou.dynamic: info
+
+letro:
+  feign:
+    bid-generator:
+#      url: http://127.0.0.1:4001
+      url: http://192.168.3.64:4001
+  bid-generator:
+    log:
+      type: 1
+      duration: 300000
+    distributedKeys:
+      - TEST
+    localKeys:
+      - TEST2
+

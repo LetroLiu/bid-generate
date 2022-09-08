@@ -1,0 +1,28 @@
+server:
+  port: 4002
+  tomcat:
+    max-swallow-size: -1
+
+spring:
+  application:
+    name: bid-generator-client
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  #json 时间戳统一转换
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  cloud:
+    # nepxion 灰度配置
+    discovery:
+      metadata:
+        group: ${user.name}
+        version: ${user.name}
+        region: ${user.name}
+        env: ${user.name}
+        zone: ${user.name}
+
+letro:
+  systemNo: bid-client
